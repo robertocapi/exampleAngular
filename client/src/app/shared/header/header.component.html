@@ -1,0 +1,157 @@
+
+
+<style>
+
+/* Bootstrap 4 text input with search icon */
+
+.has-search .form-control {
+ 
+    margin-top: 20px;
+    width: 220px;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    margin-top: 20px;
+    margin-left: 185px;
+    line-height: 2.375rem;
+    text-align: left;
+    pointer-events: none;
+    color: #aaa;
+}
+
+</style>
+
+<!-- ============================================================== -->
+<!-- Topbar header - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<header class="topbar">
+    <nav class="navbar top-navbar navbar-expand-md navbar-light" >
+  
+        <!-- ============================================================== -->
+        <div class="navbar-collapse">
+            <!-- ============================================================== -->
+            <!-- toggle and nav items -->
+            <!-- ============================================================== -->
+            <ul class="navbar-nav mr-auto" style="margin-left:50px;">
+                <!-- This is  -->
+       
+                 
+
+                 
+                <li class="nav-item"> <a class="nav-link dropdown-toggle waves-effect waves-dark" routerLink="/feed"    aria-expanded="false"> <i class=""><img src="assets/images/home.png" alt=""></i>  </a>
+            </li>
+            
+            <li class="nav-item">
+            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class=""><img src="assets/images/notification.png" alt=""></i>
+
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class=""><img src="assets/images/message.png" alt=""></i>
+
+            </a>
+        </li>
+
+     
+            </ul>
+            <!-- ============================================================== -->
+            <!-- User profile and search -->
+            <!-- ============================================================== -->
+            <ul class="navbar-nav my-lg-0">
+                
+                <!-- ============================================================== -->
+                <!-- Search -->
+                <!-- ============================================================== -->
+           
+              
+           
+  
+                    <!-- Actual search box -->
+                    <div class="form-group has-search">
+                   
+                        <span class="fa fa-search form-control-feedback"
+                      
+                        ></span>
+                      <input style="text-align:left;" type="text"  #input (keyup)="buscar( input.value )"  class="form-control" placeholder="¿Qué estás buscando?">
+   
+                    </div>
+                    
+         
+   
+                   
+            
+  
+    
+
+                <!-- ============================================================== -->
+                <!-- Language -->
+                <!-- ============================================================== -->
+                <!-- <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="flag-icon flag-icon-us"></i></a>
+                    <div class="dropdown-menu dropdown-menu-right animated bounceInDown"> <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-in"></i> India</a> <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-fr"></i> French</a> <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-cn"></i> China</a>                        <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-de"></i> Dutch</a> </div>
+                </li> -->
+                <!-- ============================================================== -->
+                <!-- Profile -->
+                <!-- ============================================================== -->
+                <li class="nav-item dropdown" >
+                    <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img [src]="usuario.img | imagen" alt="user" class="profile-pic" />
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right animated fadeIn" style="margin-top: -15px;">
+                        <ul class="dropdown-user">
+                            <li>
+                                <div class="dw-user-box" align="center">
+                                    <div class="u-img"><img [src]="usuario.img | imagen" alt="user"></div>
+                                    <div class="u-text">
+                                        <h4> {{ usuario.nombre }} </h4>
+                                        <p class="text-muted"> {{ usuario.email }} </p>
+                                      
+                                    </div>
+                                </div>
+                            </li>
+                 
+                            <li role="separator" class="divider"></li>
+                            <li><a routerLink="/perfil"><i class="ti-user"></i> Perfil</a></li>
+                            <li><a routerLink="/aparador/nuevo"><i class="ti-wallet"></i> Crear Aparador</a></li>
+                          
+                            <li ng-repeat="x in aparador | filter : 'o'">
+                                    {{ x }}
+                                  </li>
+       
+                                  
+                                   
+        <table class="table table-hover" *ngIf="aparadores.length > 0">
+                <tbody>
+                    <tr *ngFor="let aparador of aparadores" [routerLink]="['/profileapar', aparador._id]" class="pointer">
+                        <td>
+                            <img [src]="aparador.img | imagen:'aparador'" class="img-50 img-circle">
+                        </td>
+                        <td>{{ aparador.nombre }}</td>
+                    </tr>
+                </tbody>
+            </table>
+    
+            <li role="separator" class="divider"></li>
+            <li><a (click)="_usuarioService.logout()" class="pointer"><i class="fa fa-power-off"></i> Salir</a></li>
+          
+
+              
+                            
+                    
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<!-- ============================================================== -->
+<!-- End Topbar header -->
+<!-- ============================================================== -->
+

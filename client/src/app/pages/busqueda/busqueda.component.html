@@ -1,0 +1,126 @@
+<style>
+ .nav-link.active{
+    color:#FFBD53;
+    background-color:Transparent;
+    font-weight: bold;
+    font-size: 14px;
+ }
+ .nav-link{
+    color:#000000;
+    font-weight: bold;
+    font-size: 14px;
+ }
+ .alert-info{
+    background-color:#FFBD53;
+    color:#fff;
+
+ }
+</style>
+
+<div class=".text-center db" style=" display: flex;
+justify-content: center;
+align-items: center;
+z-index: 1 ;
+ margin-top:40px;
+    border-radius: 35px 35px 10px 10px;
+-moz-border-radius: 35px 35px 10px 10px;
+-webkit-border-radius: 35px 35px 10px 10px;
+border: 0px solid #000000;" >
+  
+<div class="col-md-6">
+    <div class="card card-body"  >
+
+<div align="center" >   
+
+<div class="row animated fadeIn">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <input #input (keyup)="buscar( input.value )" type="text" class="form-control" placeholder="Buscar ...">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true" style="">Aparadores</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Personas</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Productos</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Servicios</a>
+      </li>
+  </ul>
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+    
+        
+
+
+        <table class="table table-hover" *ngIf="aparadores.length > 0">
+            <tbody>
+                <tr *ngFor="let aparador of aparadores" [routerLink]="['/aparador', aparador._id]" class="pointer">
+                    <td>
+                        <img [src]="aparador.img | imagen:'aparador'" class="img-50 img-circle">
+                    </td>
+                    <td>{{ aparador.nombre }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="alert alert-info" *ngIf="aparadores.length === 0">
+            No hay registros
+        </div>
+    </div>
+    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+      
+
+                <table class="table table-hover" *ngIf="usuarios.length > 0">
+                    <tbody>
+                        <tr *ngFor="let usuario of usuarios" [routerLink]="['/usuarios']" class="pointer">
+                            <td>
+                                <img [src]="usuario.img | imagen" class="img-50 img-circle">
+                            </td>
+                            <td>{{ usuario.nombre }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="alert alert-info" *ngIf="usuarios.length === 0">
+                    No hay registros
+                </div>
+    </div>
+    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+     
+
+        <table class="table table-hover" *ngIf="publicaciones.length > 0">
+            <tbody>
+                <tr *ngFor="let publicacion of publicaciones" [routerLink]="['/publicaciones']" class="pointer">
+                    <td>
+                        <img [src]="publicacion.img | imagen:'publicacion'" class="img-50 img-circle">
+                    </td>
+                    <td>{{ publicacion.nombre }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="alert alert-info" *ngIf="publicaciones.length === 0">
+            No hay registros
+        </div>
+
+    </div>
+    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">  </div>
+  </div>
+</div>
+</div>
+</div>
+</div>

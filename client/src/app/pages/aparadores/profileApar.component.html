@@ -1,0 +1,175 @@
+
+    
+    
+   
+
+
+<style>
+        hr.style4 {
+            height: 1px;
+            border: 0;
+            box-shadow: 0 10px 10px -10px #e4e4e4 inset;
+            margin-top: 2px;
+        }
+        .nav-link.active{
+    color:#FFBD53;
+    background-color:Transparent;
+    font-weight: bold;
+    font-size: 14px;
+ }
+ .nav-link{
+    color:#000000;
+    font-weight: bold;
+    font-size: 14px;
+ }
+        </style>
+            <div style="background:#fff;">
+                <img src="assets/images/background/back_aparador.png" alt="" height="269px" width="100%">
+
+    
+               
+        </div>
+      
+ <div class=".text-center db" style=" display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1 ;
+     
+            border-radius: 35px 35px 10px 10px;
+        -moz-border-radius: 35px 35px 10px 10px;
+        -webkit-border-radius: 35px 35px 10px 10px; background:#fff;" >
+        
+            <div class="col-md-6" >
+                <div class="card card-body">
+           
+        <div align="center" style="" >    
+           
+            <div class="row">
+                <div class="col">
+ <img width="93.9px" height="93.98px" (click)="cambiarFoto()" [src]="aparador.img | imagen:'aparador'" class="img-circle img-fluid pointer" >
+    </div>
+                <div class="col" style=" margin-left:-5rem;">
+                        <p class="box-title m-b-0" style="font-size:20px; font-weight:bold; text-align:left; "> {{ aparador.nombre }}</p>
+                        <p class="box-title m-b-0" style="font-size:14px;  text-align:justify "> {{ aparador.descripcion }}</p>
+                </div>
+                <div class="col">
+                      <div class="row">
+                                <div class="col" style="text-align:right;"><button type="button" class="btn btn-secondary">323 Seguidores</button></div>
+                                <div class="col"></div>
+                                <div class="w-100"></div>
+                                <div class="col" style="margin-top:10px; text-align:right; margin-left:50px;"><button type="button" class="btn btn-light">Seguir</button></div>
+                                <div class="col"></div>
+                              </div>      
+            </div>
+        </div>
+
+<hr>
+     
+<div class="row">
+     
+        <div class="col" style=" margin-left:90px;">
+                <p class="box-title m-b-0" style="font-size:13px; font-weight:bold; text-align:left; "> {{ aparador.calleynumero}} ,{{ aparador.delegacion}}</p>
+                <p class="box-title m-b-0" style="font-size:13px;  text-align:justify; color:#E5A145; "> a 345 metros</p>
+                <p class="box-title m-b-0" style="font-size:13px;  text-align:justify; margin-top:15px; ">Mas información</p>
+        </div>
+
+
+        <div class="col">
+              <div class="row">
+                  
+                       
+                      
+                        <div class="col"></div>
+                         <div class="w-100"><a href={{aparador.telefono1}}><img src="assets/images/background/messagbut.png" alt="message"> </a></div> 
+                        <div class="w-100" style="margin-top:10px;">
+                            
+                                <a href={{aparador.telefono1}}>
+
+
+                            <img src="assets/images/background/callbutton.png" alt="call"></a>
+                            
+                            
+                            
+                            </div>
+                        <div class="col" style="text-align:right;">
+                            
+                        </div>
+                       
+                      </div>      
+    </div>
+</div> 
+    </div>
+</div>
+</div>
+     </div>
+
+
+     <ul class="nav nav-pills mb-3 justify-content-center border" id="pills-tab" role="tablist" style="background:#fff; margin-top:-20px;">
+            <li class="nav-item">
+              <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Actividades</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Mostrador</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Fotos</a>
+            </li>
+            <li class="nav-item">
+                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Comunidad</a>
+                  </li>
+                  <li class="nav-item">
+                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Proximamente</a>
+                      </li>
+            
+          </ul>
+       
+              
+    
+          <div class="tab-content" id="pills-tabContent" style="background:#fff;" >
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"  style="background:#fff;">
+
+              <div class="d-flex justify-content-center" style="margin-top:20px;" >
+              <div class="row">
+              <div class="col-12">
+              <div class="card">
+              <div class="card-body">
+              <table width="375px">
+                <tbody>
+                        <tr *ngFor="let aparador of aparadores">
+                                <td>
+                                    <img [src]="aparador.img | imagen:'aparador'" class="img-50 img-circle">
+                                </td>
+                                <td>
+                                    {{ aparador.nombre }}
+                                </td>
+                                <td>
+                                    {{ aparador.publicacion.nombre }}
+                                </td>
+                              
+                            </tr>
+                    <tr *ngFor="let publicacion of publicaciones" >
+                        <td > 
+                            <div style=" border: 2px solid rgb(12, 12, 12);
+                            border-radius: 5px;">
+                            <img (click)="actualizarImagen( publicacion )" [src]="publicacion.img | imagen:'publicacion'" class="" width="348px" height="201px">
+                         <p class="text-justify">{{publicacion.nombre}}</p>
+                        </div>
+                        </td>
+                     
+                    </tr>
+
+                </tbody>
+            </table>
+   </div>
+  </div>
+</div>
+</div>
+</div>
+      </div>
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
+            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
+          </div>
+
+  
+       
+       

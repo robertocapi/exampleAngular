@@ -1,0 +1,221 @@
+
+
+                <form ngNativeValidate #f="ngForm" (ngSubmit)="guardar( f.value )" class="form p-t-20">
+                    <div class="form-group">
+                        <label for="exampleInputuname">Nombre de usuario</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="ti-user"></i></div>
+                            <input [ngModel]="usuario.nombre" name="nombre" type="text" class="form-control" placeholder="Nombre de usuario" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Correo de usuario</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="ti-email"></i></div>
+                            <input [ngModel]="usuario.email" [disabled]="usuario.google" name="email" type="email" class="form-control" placeholder="Correo del usuario" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                            <label >Descripcion Breve</label>     <hr class="style4">
+                            <textarea style="background-color:#f2f2f2;" [(ngModel)]="usuario.descripcion" name="descripcion" type="text" class="form-control" placeholder="" required> </textarea>
+                        </div>
+                        <div class="form-group">
+                              
+                                <input  style="background-color:#f2f2f2;" [(ngModel)]="usuario.calleynumero" name="calleynumero" type="text" class="form-control" placeholder="Calle y Numero" required> 
+                            </div>
+                            <div class="form-group">
+                        
+                                    <input  style="background-color:#f2f2f2;" [(ngModel)]="usuario.colonia" name="colonia" type="text" class="form-control" placeholder="Colonia / Barrio" required> 
+        
+                                </div>
+                                <div class="form-group">
+
+                                        <input  style="background-color:#f2f2f2;" [(ngModel)]="usuario.delegacion" name="delegacion" type="text" class="form-control" placeholder="Delegacion / Alcadia /Municipio" required> 
+            
+                                    </div>
+
+                        <div class="form-group">
+                        
+                                <select [(ngModel)]="usuario.estado" name="estado"  style="background-color:#f2f2f2;color:#999999 " class="form-control" placeholder="Estado" required>
+                                    <option value=""> selecciona un Estado</option>
+                                    <option value="DIF">Distrito Federal</option>
+                                    <option value="AGS">Aguascalientes</option>
+                                    <option value="BCN">Baja California</option>
+                                    <option value="BCS">Baja California Sur</option>
+                                    <option value="CAM">Campeche</option>
+                                    <option value="CHP">Chiapas</option>
+                                    <option value="CHI">Chihuahua</option>
+                                    <option value="COA">Coahuila</option>
+                                    <option value="COL">Colima</option>
+                                    <option value="DUR">Durango</option>
+                                    <option value="GTO">Guanajuato</option>
+                                    <option value="GRO">Guerrero</option>
+                                    <option value="HGO">Hidalgo</option>
+                                    <option value="JAL">Jalisco</option>
+                                    <option value="MEX">M&eacute;xico</option>
+                                    <option value="MIC">Michoac&aacute;n</option>
+                                    <option value="MOR">Morelos</option>
+                                    <option value="NAY">Nayarit</option>
+                                    <option value="NLE">Nuevo Le&oacute;n</option>
+                                    <option value="OAX">Oaxaca</option>
+                                    <option value="PUE">Puebla</option>
+                                    <option value="QRO">Quer&eacute;taro</option>
+                                    <option value="ROO">Quintana Roo</option>
+                                    <option value="SLP">San Luis Potos&iacute;</option>
+                                    <option value="SIN">Sinaloa</option>
+                                    <option value="SON">Sonora</option>
+                                    <option value="TAB">Tabasco</option>
+                                    <option value="TAM">Tamaulipas</option>
+                                    <option value="TLX">Tlaxcala</option>
+                                    <option value="VER">Veracruz</option>
+                                    <option value="YUC">Yucat&aacute;n</option>
+                                    <option value="ZAC">Zacatecas</option>
+                                </select>							
+                            </div>
+                            <div class="form-group">
+
+                                    <input  style="background-color:#f2f2f2;" [(ngModel)]="usuario.codigopostal" name="codigopostal" type="text" class="form-control" placeholder="Codigo Postal" required> 
+        
+                                </div>
+        
+                                <div class="form-group">
+                                    <label >Categoria</label>     <hr class="style4">
+                                    <select [(ngModel)]="usuario.categoria" name="categoria"  style="background-color:#f2f2f2;color:#999999 " class="form-control" required> 
+                                        <option value="">Eligen una Categoria</option> 
+                                        <option value="Turismo">Turismos</option>    
+                                    </select> 
+                                </div>
+        
+                                <div class="form-group">
+                                    <label >Palabras Claves</label>     <hr class="style4">
+                                    <textarea style="background-color:#f2f2f2;" [(ngModel)]="usuario.etiquetas" name="etiquetas" type="text" class="form-control" placeholder="" required> </textarea>
+                                </div>   
+                                <div class="form-group">
+                                        <label >Enlance a otros sitios</label>     <hr class="style4">
+                                        <input  style="background-color:#f2f2f2;" [(ngModel)]="usuario.enlance1" name="enlance1" type="text" class="form-control" placeholder="Enlance 1" required> 
+            
+                                </div>
+            
+                                <div class="form-group">
+                                    <input  style="background-color:#f2f2f2;" [(ngModel)]="usuario.enlance2" name="enlance2" type="text" class="form-control" placeholder="Enlance 2" required> 
+                              </div>
+                              <div class="form-group">
+                                  <input  style="background-color:#f2f2f2;" [(ngModel)]="usuario.enlance3" name="enlance4" type="text" class="form-control" placeholder="Enlance 3" required> 
+                            </div>
+            
+                            <div class="form-group">
+                                <input  style="background-color:#f2f2f2;" [(ngModel)]="usuario.enlance4" name="enlance4" type="text" class="form-control" placeholder="Enlance 4" required> 
+                          </div>
+                          <div class="form-group">
+                              <label >Telefonos</label>     <hr class="style4">
+                              <input  style="background-color:#f2f2f2;" [(ngModel)]="usuario.telefono1" name="telefono1" type="text" class="form-control" placeholder="Telefono 1" required> 
+                                    </div>
+            
+                      <div class="form-group">
+                      <input  style="background-color:#f2f2f2;" [(ngModel)]="usuario.telefono2" name="telefono2" type="text" class="form-control" placeholder="Telefono 2" required> 
+                         </div>
+            
+                         <div class="form-group">
+                            <input  style="background-color:#f2f2f2;" [(ngModel)]="usuario.telefono3" name="telefono3" type="text" class="form-control" placeholder="Telefono 3" required  > 
+                               </div>
+                               <div class="form-group">
+                                  <input  style="background-color:#f2f2f2;" [(ngModel)]="usuario.telefono4" name="telefono4" type="text" class="form-control" placeholder="Telefono 4" required > 
+                                     </div>              
+                                     
+                                     <div class="form-group">
+                                            <label >Horario Comercial</label>   
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                        <tr>
+                                                          <td>Lunes</td>
+                                                          <td width="310px">  <div  class="form-group col-sm-4">
+                                                              <input  style="background-color:#f2f2f2;" [(ngModel)]="usuario.hlunesapertura" name="hlunesapertura" type="text" class="form-control" placeholder="8:00"  required> 
+                                                                     </div> </td> 
+                                                          <td ><p style="margin-left:-100px;">a</p></td> 
+                                                          <td width="310px" ><div  class="form-group col-sm-4">
+                                                              <input  style="background-color:#f2f2f2;" [(ngModel)]="usuario.hlunescierre" name="hlunescierre" type="text" class="form-control" placeholder="20:00" required> 
+                                                                     </div></td>
+                                                        </tr>
+                                                        <tr>
+                                                          <td>Martes</td>
+                                                          <td><div  class="form-group col-sm-4">
+                                                              <input  style="background-color:#f2f2f2;" [(ngModel)]="usuario.hmartesapertura" name="hmartesapertura" type="text" class="form-control" placeholder="8:00" required> 
+                                                                     </div></td> 
+                                                                     <td ><p style="margin-left:-100px;">a</p></td> 
+                                                          <td><div  class="form-group col-sm-4">
+                                                              <input  style="background-color:#f2f2f2;" [(ngModel)]="usuario.hmartescierre" name="hmartescierre" type="text" class="form-control" placeholder="8:00" required> 
+                                                                     </div></td>
+                                                        </tr>
+                                                        <tr>
+                                                          <td>Miercoles</td>
+                                                          <td><div  class="form-group col-sm-4">
+                                                              <input  style="background-color:#f2f2f2;" [(ngModel)]="usuario.hmiercolesapertura" name="hmiercolesapertura" type="text" class="form-control" placeholder="8:00" required> 
+                                                                     </div></td> 
+                                                                     <td ><p style="margin-left:-100px;">a</p></td> 
+                                                          <td><div  class="form-group col-sm-4">
+                                                              <input  style="background-color:#f2f2f2;" [(ngModel)]="usuario.hmiercolescierre" name="hmiercolescierre" type="text" class="form-control" placeholder="8:00" required>
+                                                                     </div></td>
+                                                        </tr>
+                                                        <tr>
+                                                                <td>Jueves</td>
+                                                                <td><div  class="form-group col-sm-4">
+                                                                    <input  style="background-color:#f2f2f2;" [(ngModel)]="usuario.hjuevesapertura" name="hjuevesapertura" type="text" class="form-control" placeholder="8:00" required> 
+                                                                             </div></td> 
+                                                                             <td ><p style="margin-left:-100px;">a</p></td> 
+                                                                <td><div  class="form-group col-sm-4">
+                                                                    <input  style="background-color:#f2f2f2;" [(ngModel)]="usuario.hjuevescierre" name="hjuevescierre" type="text" class="form-control" placeholder="8:00" required> 
+                                                                             </div></td>
+                                                              </tr>
+                                                              <tr>
+                                                                    <td>Viernes</td>
+                                                                    <td>
+                                                                      <div  class="form-group col-sm-4">
+                                                                        <input  style="background-color:#f2f2f2;" [(ngModel)]="usuario.hviernesapertura" name="hviernesapertura" type="text" class="form-control" placeholder="8:00" required> 
+                
+                                                                                 </div></td> 
+                                                                                 <td ><p style="margin-left:-100px;">a</p></td>  
+                                                                    <td><div  class="form-group col-sm-4">
+                                                                        <input  style="background-color:#f2f2f2;" [(ngModel)]="usuario.hviernescierre" name="hviernescierre" type="text" class="form-control" placeholder="8:00" required> 
+                                                                                 </div></td>
+                                                                  </tr>
+                                                                  <tr>
+                                                                        <td>Sabado</td>
+                                                                        <td><div  class="form-group col-sm-4">
+                                                                            <input  style="background-color:#f2f2f2;" [(ngModel)]="usuario.hsabadoapertura" name="hsabadoapertura" type="text" class="form-control" placeholder="8:00" required> 
+                                                                                     </div></td> 
+                                                                                     <td ><p style="margin-left:-100px;">a</p></td>  
+                                                                        <td><div  class="form-group col-sm-4">
+                                                                            <input  style="background-color:#f2f2f2;" [(ngModel)]="usuario.hsabadocierre" name="hsabadocierre" type="text" class="form-control" placeholder="8:00" required>
+                                                                                     </div></td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                            <td>Domingo</td>
+                                                                            <td><div  class="form-group col-sm-4">
+                                                                                <input  style="background-color:#f2f2f2;" [(ngModel)]="usuario.hdomingoapertura" name="hdomingoapertura" type="text" class="form-control" placeholder="8:00" required> 
+                                                                                         </div></td> 
+                                                                                         <td ><p style="margin-left:-100px;">a</p></td> 
+                                                                            <td><div  class="form-group col-sm-4">
+                                                                                <input  style="background-color:#f2f2f2;" [(ngModel)]="usuario.hdomingocierre" name="hdomingocierre" type="text" class="form-control" placeholder="18:00" required> 
+                                                                                         </div></td>
+                                                                          </tr>
+                                                      </table>
+                                                  </div>               
+                                                </div>  
+                
+                
+                                                                         
+
+
+
+
+                    <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">
+                      <i class="fa fa-save"></i>
+                      Guardar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+   

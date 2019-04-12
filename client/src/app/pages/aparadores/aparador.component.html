@@ -1,0 +1,318 @@
+
+    
+    
+   
+
+
+<style>
+        hr.style4 {
+            height: 1px;
+            border: 0;
+            box-shadow: 0 10px 10px -10px #e4e4e4 inset;
+            margin-top: 2px;
+        }
+        </style>
+        
+        <div class=".text-center db" style=" display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1 ;
+         margin-top:40px;
+            border-radius: 35px 35px 10px 10px;
+        -moz-border-radius: 35px 35px 10px 10px;
+        -webkit-border-radius: 35px 35px 10px 10px;
+        border: 0px solid #000000;" >
+        
+            <div class="col-md-6" >
+                <div class="card card-body">
+           
+        <div align="center">    
+           
+                <div class="col-md-3" *ngIf="aparador._id">
+                        <div class="card card-body">
+                            <h4 class="box-title m-b-0">Fotografía</h4>
+                
+                            <img (click)="cambiarFoto()" [src]="aparador.img | imagen:'aparador'" class="img-circle img-fluid pointer">
+                        </div>
+                    </div>
+                
+                </div>
+                
+        
+                    <h3 class="box-title m-b-0">Aparador: {{ aparador.nombre }}</h3>
+                    <div class="row">
+                        <div class="col-sm-12 col-xs-12">
+                            <form #f="ngForm" ngNativeValidate (ngSubmit)="guardarAparador(f)">
+                                
+                                <div class="form-group">
+                                    <label >Nombre</label>     <hr class="style4">
+                                    <input style="background-color:#f2f2f2;" [(ngModel)]="aparador.nombre" name="nombre" type="text" class="form-control" placeholder="" required>
+         
+                                </div>
+        
+                                <div class="form-group">
+                                    <label >Descripcion Breve</label>     <hr class="style4">
+                                    <textarea style="background-color:#f2f2f2;" [(ngModel)]="aparador.descripcion" name="descripcion" type="text" class="form-control" placeholder="" required> </textarea>
+                                </div>
+        
+                                <div class="form-group">
+                                    <label >Dirección</label>     <hr class="style4">
+                                    <input  style="background-color:#f2f2f2;" [(ngModel)]="aparador.calleynumero" name="calleynumero" type="text" class="form-control" placeholder="Calle y Numero" required> 
+        
+                                </div>
+        
+                                <div class="form-group">
+                                
+                                    <input  style="background-color:#f2f2f2;" [(ngModel)]="aparador.colonia" name="colonia" type="text" class="form-control" placeholder="Colonia / Barrio" required> 
+        
+                                </div>
+        
+                                <div class="form-group">
+        
+                                    <input  style="background-color:#f2f2f2;" [(ngModel)]="aparador.delegacion" name="delegacion" type="text" class="form-control" placeholder="Delegacion / Alcadia /Municipio" required> 
+        
+                                </div>
+        
+                                <div class="form-group">
+                                
+                                    <select [(ngModel)]="aparador.estado" name="estado"  style="background-color:#f2f2f2;color:#999999 " class="form-control" placeholder="Estado" required>
+                                        <option value=""> selecciona un Estado</option>
+                                        <option value="DIF">Distrito Federal</option>
+                                        <option value="AGS">Aguascalientes</option>
+                                        <option value="BCN">Baja California</option>
+                                        <option value="BCS">Baja California Sur</option>
+                                        <option value="CAM">Campeche</option>
+                                        <option value="CHP">Chiapas</option>
+                                        <option value="CHI">Chihuahua</option>
+                                        <option value="COA">Coahuila</option>
+                                        <option value="COL">Colima</option>
+                                        <option value="DUR">Durango</option>
+                                        <option value="GTO">Guanajuato</option>
+                                        <option value="GRO">Guerrero</option>
+                                        <option value="HGO">Hidalgo</option>
+                                        <option value="JAL">Jalisco</option>
+                                        <option value="MEX">M&eacute;xico</option>
+                                        <option value="MIC">Michoac&aacute;n</option>
+                                        <option value="MOR">Morelos</option>
+                                        <option value="NAY">Nayarit</option>
+                                        <option value="NLE">Nuevo Le&oacute;n</option>
+                                        <option value="OAX">Oaxaca</option>
+                                        <option value="PUE">Puebla</option>
+                                        <option value="QRO">Quer&eacute;taro</option>
+                                        <option value="ROO">Quintana Roo</option>
+                                        <option value="SLP">San Luis Potos&iacute;</option>
+                                        <option value="SIN">Sinaloa</option>
+                                        <option value="SON">Sonora</option>
+                                        <option value="TAB">Tabasco</option>
+                                        <option value="TAM">Tamaulipas</option>
+                                        <option value="TLX">Tlaxcala</option>
+                                        <option value="VER">Veracruz</option>
+                                        <option value="YUC">Yucat&aacute;n</option>
+                                        <option value="ZAC">Zacatecas</option>
+                                    </select>							
+                                </div>
+                                <div class="form-group">
+        
+                                    <input  style="background-color:#f2f2f2;" [(ngModel)]="aparador.codigopostal" name="codigopostal" type="text" class="form-control" placeholder="Codigo Postal" required> 
+        
+                                </div>
+        
+                                <div class="form-group">
+                                    <label >Categoria</label>     <hr class="style4">
+                                    <select [(ngModel)]="aparador.categoria" name="categoria"  style="background-color:#f2f2f2;color:#999999 " class="form-control" required> 
+                                        <option value="">Eligen una Categoria</option> 
+                                        <option value="Turismo">Turismos</option>    
+                                    </select> 
+                                </div>
+        
+                                <div class="form-group">
+                                    <label >Palabras Claves</label>     <hr class="style4">
+                                    <textarea style="background-color:#f2f2f2;" [(ngModel)]="aparador.etiquetas" name="etiquetas" type="text" class="form-control" placeholder="" required> </textarea>
+                                </div>
+
+                            
+            <!-- Inico Enlaces colpsables -->
+                                <label >Enlance a otros sitios</label>     <hr class="style4">
+                                      <div class="row">
+                                        <div class="col-10">    <div class="form-group">
+                                       
+                                               
+                                                <input  style="background-color:#f2f2f2;" [(ngModel)]="aparador.enlance1" name="enlance1" type="text" class="form-control" placeholder="Añade hasta 4 enlaces a otros sitios web" required>      
+                                        </div></div>
+                                        <div class="col-2">   <p><button class="btn btn-primary " style="background-color:#AAAAAA; border:#AAAAAA;" type="button" data-toggle="collapse" data-target="#multiCollapseEnlances" aria-expanded="false" aria-controls="multiCollapseEnlances"><i class="fa fa-plus-square-o"></i></button>
+                                        </p></div>
+                                      </div>
+
+
+
+                                      <div class="row">
+                                        <div class="col">
+                                          <div class="collapse multi-collapse" id="multiCollapseEnlances">
+                                            <div class="card card-body">
+                                                    <div class="form-group">
+                                                            <input  style="background-color:#f2f2f2;" [(ngModel)]="aparador.enlance2" name="enlance2" type="text" class="form-control" placeholder="Enlance 2"> 
+                                                      </div>
+                                                      <div class="form-group">
+                                                          <input  style="background-color:#f2f2f2;" [(ngModel)]="aparador.enlance3" name="enlance3" type="text" class="form-control" placeholder="Enlance 3"> 
+                                                    </div>
+                                    
+                                                    <div class="form-group">
+                                                        <input  style="background-color:#f2f2f2;" [(ngModel)]="aparador.enlance4" name="enlance4" type="text" class="form-control" placeholder="Enlance 4"> 
+                                                  </div>
+                                            </div>
+                                          </div>
+                                        </div>
+             
+                                      </div>
+
+<!--Fin  Enlaces colpsables -->
+
+
+
+
+
+
+        
+                       
+                           <!-- Inicio Telefonos colpsables --> 
+
+                           <label >Telefonos</label>     <hr class="style4">
+                           <div class="row">
+                             <div class="col-10">   
+                                    <div class="form-group">
+                      
+                                            <input  style="background-color:#f2f2f2;" [(ngModel)]="aparador.telefono1" name="telefono1" type="text" class="form-control" placeholder="Añade hasta 4 teléfonos de contacto" required> 
+                                                       </div>
+                            </div>
+                             <div class="col-2">   <p><button class="btn btn-primary " style="background-color:#AAAAAA; border:#AAAAAA;" type="button" data-toggle="collapse" data-target="#multiCollapseTelefono" aria-expanded="false" aria-controls="multiCollapseTelefono"><i class="fa fa-plus-square-o"></i></button>
+                             </p></div>
+                           </div>
+
+
+
+                           <div class="row">
+                             <div class="col">
+                               <div class="collapse multi-collapse" id="multiCollapseTelefono">
+                                 <div class="card card-body">
+                                        <div class="form-group">
+                                                <input  style="background-color:#f2f2f2;" [(ngModel)]="aparador.telefono2" name="telefono2" type="text" class="form-control" placeholder="Telefono 2"> 
+                                                   </div>
+                                      
+                                                   <div class="form-group">
+                                                      <input  style="background-color:#f2f2f2;" [(ngModel)]="aparador.telefono3" name="telefono3" type="text" class="form-control" placeholder="Telefono 3"> 
+                                                         </div>
+                                                         <div class="form-group">
+                                                            <input  style="background-color:#f2f2f2;" [(ngModel)]="aparador.telefono4" name="telefono4" type="text" class="form-control" placeholder="Telefono 4"> 
+                                                               </div>
+                                 </div>
+                               </div>
+                             </div>
+  
+                           </div>
+
+
+        <!-- Fin Telefonos colpsables --> 
+
+
+                    
+                           
+                   
+        
+         
+                                 <div class="form-group">
+                                    <label >Horario Comercial</label>   
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                                <tr>
+                                                  <td>Lunes</td>
+                                                  <td width="310px">  <div  class="form-group col-sm-4">
+                                                      <input  style="background-color:#f2f2f2;" [(ngModel)]="aparador.hlunesapertura" name="hlunesapertura" type="text" class="form-control" placeholder="8:00"> 
+                                                             </div> </td> 
+                                                  <td ><p style="margin-left:-100px;">a</p></td> 
+                                                  <td width="310px" ><div  class="form-group col-sm-4">
+                                                      <input  style="background-color:#f2f2f2;" [(ngModel)]="aparador.hlunescierre" name="hlunescierre" type="text" class="form-control" placeholder="20:00"> 
+                                                             </div></td>
+                                                </tr>
+                                                <tr>
+                                                  <td>Martes</td>
+                                                  <td><div  class="form-group col-sm-4">
+                                                      <input  style="background-color:#f2f2f2;" [(ngModel)]="aparador.hmartesapertura" name="hmartesapertura" type="text" class="form-control" placeholder="8:00" > 
+                                                             </div></td> 
+                                                             <td ><p style="margin-left:-100px;">a</p></td> 
+                                                  <td><div  class="form-group col-sm-4">
+                                                      <input  style="background-color:#f2f2f2;" [(ngModel)]="aparador.hmartescierre" name="hmartescierre" type="text" class="form-control" placeholder="8:00"> 
+                                                             </div></td>
+                                                </tr>
+                                                <tr>
+                                                  <td>Miercoles</td>
+                                                  <td><div  class="form-group col-sm-4">
+                                                      <input  style="background-color:#f2f2f2;" [(ngModel)]="aparador.hmiercolesapertura" name="hmiercolesapertura" type="text" class="form-control" placeholder="8:00"> 
+                                                             </div></td> 
+                                                             <td ><p style="margin-left:-100px;">a</p></td> 
+                                                  <td><div  class="form-group col-sm-4">
+                                                      <input  style="background-color:#f2f2f2;" [(ngModel)]="aparador.hmiercolescierre" name="hmiercolescierre" type="text" class="form-control" placeholder="8:00">
+                                                             </div></td>
+                                                </tr>
+                                                <tr>
+                                                        <td>Jueves</td>
+                                                        <td><div  class="form-group col-sm-4">
+                                                            <input  style="background-color:#f2f2f2;" [(ngModel)]="aparador.hjuevesapertura" name="hjuevesapertura" type="text" class="form-control" placeholder="8:00"> 
+                                                                     </div></td> 
+                                                                     <td ><p style="margin-left:-100px;">a</p></td> 
+                                                        <td><div  class="form-group col-sm-4">
+                                                            <input  style="background-color:#f2f2f2;" [(ngModel)]="aparador.hjuevescierre" name="hjuevescierre" type="text" class="form-control" placeholder="8:00"> 
+                                                                     </div></td>
+                                                      </tr>
+                                                      <tr>
+                                                            <td>Viernes</td>
+                                                            <td>
+                                                              <div  class="form-group col-sm-4">
+                                                                <input  style="background-color:#f2f2f2;" [(ngModel)]="aparador.hviernesapertura" name="hviernesapertura" type="text" class="form-control" placeholder="8:00"> 
+        
+                                                                         </div></td> 
+                                                                         <td ><p style="margin-left:-100px;">a</p></td>  
+                                                            <td><div  class="form-group col-sm-4">
+                                                                <input  style="background-color:#f2f2f2;" [(ngModel)]="aparador.hviernescierre" name="hviernescierre" type="text" class="form-control" placeholder="8:00" > 
+                                                                         </div></td>
+                                                          </tr>
+                                                          <tr>
+                                                                <td>Sabado</td>
+                                                                <td><div  class="form-group col-sm-4">
+                                                                    <input  style="background-color:#f2f2f2;" [(ngModel)]="aparador.hsabadoapertura" name="hsabadoapertura" type="text" class="form-control" placeholder="8:00"> 
+                                                                             </div></td> 
+                                                                             <td ><p style="margin-left:-100px;">a</p></td>  
+                                                                <td><div  class="form-group col-sm-4">
+                                                                    <input  style="background-color:#f2f2f2;" [(ngModel)]="aparador.hsabadocierre" name="hsabadocierre" type="text" class="form-control" placeholder="8:00">
+                                                                             </div></td>
+                                                              </tr>
+                                                              <tr>
+                                                                    <td>Domingo</td>
+                                                                    <td><div  class="form-group col-sm-4">
+                                                                        <input  style="background-color:#f2f2f2;" [(ngModel)]="aparador.hdomingoapertura" name="hdomingoapertura" type="text" class="form-control" placeholder="8:00"> 
+                                                                                 </div></td> 
+                                                                                 <td ><p style="margin-left:-100px;">a</p></td> 
+                                                                    <td><div  class="form-group col-sm-4">
+                                                                        <input  style="background-color:#f2f2f2;" [(ngModel)]="aparador.hdomingocierre" name="hdomingocierre" type="text" class="form-control" placeholder="18:00"> 
+                                                                                 </div></td>
+                                                                  </tr>
+                                              </table>
+                                          </div>               
+                                        </div>  
+        
+        
+                             
+        
+                                <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">
+                                  <i class="fa fa-save"></i>
+                                  Guardar
+                                </button>
+                                <a routerLink="/feed" class="btn btn-inverse waves-effect waves-light">Cancelar</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        
+        
+        </div>

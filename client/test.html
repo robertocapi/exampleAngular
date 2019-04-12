@@ -1,0 +1,10 @@
+   <div class="form-group">
+                            <label>Usuario</label>
+                            <select (change)="cambioPublicacion( $event.target.value )" [(ngModel)]="aparador.publicacion" name="publicacion" class="form-control" required>
+                              <option value="">Seleccione una publicacion</option>
+                              <option *ngFor="let publicacion of publicaciones" [value]="publicacion._id">
+                                {{ publicacion.nombre }}
+                              </option>
+                            </select>
+
+                        </div>
